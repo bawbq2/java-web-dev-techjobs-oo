@@ -58,6 +58,9 @@ public class Job {
     }
 
     public String getName() {
+        if (this.name.equals("")) {
+            this.name = "Data not available";
+        }
         return name;
     }
 
@@ -66,14 +69,20 @@ public class Job {
     }
 
     public Employer getEmployer() {
-        return employer;
-    }
+        if (employer.getValue().equals("")) {
+            employer.setValue("Data not available");
+        }
+            return employer;
+        };
 
     public void setEmployer(Employer employer) {
         this.employer = employer;
     }
 
     public Location getLocation() {
+        if (location.getValue().equals("")) {
+            location.setValue("Data not available");
+        }
         return location;
     }
 
@@ -82,6 +91,9 @@ public class Job {
     }
 
     public PositionType getPositionType() {
+        if (positionType.getValue().equals("")) {
+            positionType.setValue("Data not available");
+        }
         return positionType;
     }
 
@@ -90,10 +102,28 @@ public class Job {
     }
 
     public CoreCompetency getCoreCompetency() {
+        if (coreCompetency.getValue().equals("")) {
+            coreCompetency.setValue("Data not available");
+        }
         return coreCompetency;
     }
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    @Override
+    public String toString() {
+        if (this.employer == null) {
+            return "OOPS! This job does not seem to exist.";
+        } else {
+            return "\nID: " + this.getId() +
+                    "\nName: " + this.getName() +
+                    "\nEmployer: " + this.getEmployer() +
+                    "\nLocation: " + this.getLocation() +
+                    "\nPosition Type: " + this.getPositionType() +
+                    "\nCore Competency: " + this.getCoreCompetency() +
+                    "\n";
+        }
     }
 }
