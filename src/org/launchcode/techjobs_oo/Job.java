@@ -114,7 +114,7 @@ public class Job {
 
     @Override
     public String toString() {
-        if (this.employer == null) {
+        if (this.name == null && this.employer == null && this.location == null && this.positionType == null && this.coreCompetency == null) {
             return "OOPS! This job does not seem to exist.";
         } else {
             return "\nID: " + this.getId() +
